@@ -7,7 +7,7 @@ defmodule Cake.Service do
         import Supervisor.Spec, warn: false
 
         children = [
-            worker(Cake.Service.Mailer, [])
+            Cake.Service.Mailer
         ]
 
         opts = [strategy: :one_for_one, name: Cake.Service.Supervisor]
