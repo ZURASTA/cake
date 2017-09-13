@@ -15,6 +15,12 @@ defmodule Cake.Service.Mailer do
         GenServer.start_link(__MODULE__, [], name: __MODULE__)
     end
 
-    def handle_call({ :post, { email } }, _from, state), do: { :reply, Dispatch.post(email), state }
-    def handle_call({ :post, { email, attributes } }, _from, state), do: { :reply, Dispatch.post(email, attributes), state }
+    def handle_call({ :post, { email } }, from, state) do
+        Task.start(fn -> GenServer.reply(from, Dispatch.post(email)) end)
+        { :noreply, state }
+    end
+    def handle_call({ :post, { email, attributes } }, from, state) do
+        Task.start(fn -> GenServer.reply(from, Dispatch.post(email, attributes)) end)
+        { :noreply, state }
+    end
 end
