@@ -9,7 +9,7 @@ defmodule Cake.Mixfile do
             deps: deps(),
             dialyzer: [plt_add_deps: :transitive],
             name: "Cake",
-            source_url: "https://github.com/ScrimpyCat/cake",
+            source_url: "https://github.com/ZURASTA/cake",
             docs: [
                 main: "cake",
                 extras: ["README.md": [filename: "cake", title: "Cake"]]
