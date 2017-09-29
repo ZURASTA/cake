@@ -44,7 +44,13 @@ Cake.API.Mailer.post(%InvoiceTemplate{ client: { "Foo", "foo@bar" }, amount: "$1
 To see more on how composing works see `Cake.Email.compose/2`.
 
 
-Todo
-----
+Configuration
+-------------
 
-- [ ] Normalise success and failure results for the API (so it isn't dependent on swoosh adapter).
+The service may be configured with the following options:
+
+### Email Server
+
+The email service can be configured by providing the config for the key `Cake.Service.Mailer.Dispatch`.
+
+For details on how to configure a [Swoosh mailer](https://hexdocs.pm/swoosh/Swoosh.Mailer.html).
