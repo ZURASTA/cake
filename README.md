@@ -1,5 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/ZURASTA/cake.png?label=ready&title=Ready)](https://waffle.io/ZURASTA/cake?utm_source=badge) [![CircleCI](https://circleci.com/gh/ZURASTA/cake.svg?style=svg)](https://circleci.com/gh/ZURASTA/cake)
 # Cake (Email Delivery)
+
+[![Stories in Ready](https://badge.waffle.io/ZURASTA/cake.png?label=ready&title=Ready)](https://waffle.io/ZURASTA/cake?utm_source=badge)
+[![CircleCI](https://circleci.com/gh/ZURASTA/cake.svg?style=svg)](https://circleci.com/gh/ZURASTA/cake)
+[![Deps Status](https://beta.hexfaktor.org/badge/all/github/ZURASTA/cake.svg)](https://beta.hexfaktor.org/github/ZURASTA/cake)
 
 Provides support for composing emails from reusable templates and utilises the `Swoosh` library to provide support for delivering emails.
 
