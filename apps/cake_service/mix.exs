@@ -41,7 +41,7 @@ defmodule Cake.Service.Mixfile do
     # Type "mix help deps" for more examples and options
     defp deps() do
         [
-            { :swoosh, "~> 0.8.0" },
+            { :swoosh, "~> 0.13.0" },
             { :cake_email, in_umbrella: true }
         ]
     end
