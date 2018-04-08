@@ -12,7 +12,7 @@ defmodule Cake.API.Mixfile do
             elixir: "~> 1.4",
             build_embedded: Mix.env == :prod,
             start_permanent: Mix.env == :prod,
-            deps: deps(Mix.Project.umbrella?),
+            deps: deps(),
             dialyzer: [plt_add_deps: :transitive]
         ]
     end
@@ -37,11 +37,10 @@ defmodule Cake.API.Mixfile do
     #   {:my_app, in_umbrella: true}
     #
     # Type "mix help deps" for more examples and options
-    defp deps(false) do
+    defp deps() do
         [
-            { :cake_email, path: "../cake_email" },
-            { :cake_service, path: "../cake_service", only: :test }
+            { :cake_email, in_umbrella: true },
+            { :cake_service, in_umbrella: true, only: :test }
         ]
     end
-    defp deps(true), do: []
 end
