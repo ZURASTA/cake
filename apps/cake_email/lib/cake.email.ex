@@ -50,6 +50,17 @@ defmodule Cake.Email do
         attachments: [attachment] | attachment | nil
     }
     @type template :: %{ :formatter => (template -> t), optional(any) => any }
+    @type attributes :: [
+        from: address | nil,
+        to: [address] | address | nil,
+        reply_to: address | nil,
+        headers: %{ optional(String.t) => String.t } | nil,
+        cc: [address] | address | nil,
+        bcc: [address] | address | nil,
+        subject: String.t | nil,
+        body: Email.Body.t | nil,
+        attachments: [attachment] | attachment | nil
+    ]
 
     defstruct [
         :from,
@@ -90,7 +101,7 @@ defmodule Cake.Email do
         iex> Cake.Email.compose(template, to: "foo@bar", subject: "Overridden")
         %Cake.Email{attachments: nil, bcc: nil, body: %Cake.Email.Body{html: nil, text: "Hello Blah!"}, cc: nil, from: nil, headers: nil, reply_to: nil, subject: "Overridden", to: "foo@bar"}
     """
-    @spec compose(t | template, keyword) :: t
+    @spec compose(t | template, attributes) :: t
     def compose(email, params \\ [])
     def compose(email = %Email{}, params), do: Map.merge(email, Map.new(params))
     def compose(template = %{ formatter: formatter }, params), do: compose(formatter.(template), params)

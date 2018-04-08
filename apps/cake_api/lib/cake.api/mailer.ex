@@ -14,7 +14,7 @@ defmodule Cake.API.Mailer do
       by the internal mailing service. Otherwise returns `{ :error, result }`, where
       result is the state returned by the internal mailing service.
     """
-    @spec post(Email.t | Email.template, keyword, keyword(any)) :: { :ok, term } | { :error, term }
+    @spec post(Email.t | Email.template, Email.attributes, keyword(any)) :: { :ok, term } | { :error, term }
     def post(email, attributes \\ [], options \\ []) do
         options = Cake.API.defaults(options)
         GenServer.call(options[:server].(@service), { :post, { email, attributes } })

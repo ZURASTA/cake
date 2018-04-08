@@ -4,7 +4,7 @@ defmodule Cake.Service.Mailer.Dispatch do
 
     alias Cake.Email
 
-    @spec post(Email.t | Email.template, keyword) :: { :ok, term } | { :error, term }
+    @spec post(Email.t | Email.template, Email.attributes) :: { :ok, term } | { :error, term }
     def post(email, params \\ []) do
         Email.compose(email, params)
         |> Keyword.new
@@ -12,6 +12,7 @@ defmodule Cake.Service.Mailer.Dispatch do
         |> deliver
     end
 
+    @spec create_email(Email.attributes, Swoosh.Email.t) :: Swoosh.Email.t
     defp create_email(attributes, email \\ %Swoosh.Email{})
     defp create_email([], email), do: email
     defp create_email([{ :from,        value }|attributes], email), do: create_email(attributes, Swoosh.Email.from(email, value))
