@@ -13,7 +13,10 @@ defmodule Cake.Mixfile do
             source_url: "https://github.com/ZURASTA/cake",
             docs: [
                 main: "cake",
-                extras: ["README.md": [filename: "cake", title: "Cake"]]
+                extras: [
+                    "README.md": [filename: "cake", title: "Cake"],
+                    "overview.md": [filename: "overview", title: "Overview"]
+                ]
             ]
         ]
     end
