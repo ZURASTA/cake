@@ -10,6 +10,8 @@ defmodule Cake.API.Mailer do
     @doc """
       Send an email.
 
+      #{Cake.API.option_docs}
+
       Returns `{ :ok, result }` on successful send, where result is the state returned
       by the internal mailing service. Otherwise returns `{ :error, result }`, where
       result is the state returned by the internal mailing service.
