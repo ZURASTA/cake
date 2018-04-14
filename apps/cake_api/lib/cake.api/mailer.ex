@@ -19,6 +19,6 @@ defmodule Cake.API.Mailer do
     @spec post(Email.t | Email.template, Email.attributes, keyword(any)) :: { :ok, term } | { :error, term }
     def post(email, attributes \\ [], options \\ []) do
         options = Cake.API.defaults(options)
-        GenServer.call(options[:server].(@service), { :post, { email, attributes } })
+        GenServer.call(options[:server].(@service), { :post, { email, attributes } }, options[:timeout])
     end
 end
