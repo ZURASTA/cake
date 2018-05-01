@@ -39,8 +39,8 @@ defmodule Cake.API.Mixfile do
     # Type "mix help deps" for more examples and options
     defp deps(false) do
         [
-            { :cake_email, in_umbrella: true },
-            { :cake_service, in_umbrella: true, only: :test }
+            { :cake_email, path: "../cake_email" },
+            { :cake_service, path: "../cake_service", only: :test }
         ]
     end
     defp deps(true), do: []
